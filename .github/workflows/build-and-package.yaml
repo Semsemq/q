@@ -132,7 +132,7 @@ jobs:
 
         pip3 install -r test-requirements.txt
     - name: Download Linux Executable
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: linux-q
     - name: Run Tests on Linux Executable
@@ -156,11 +156,11 @@ jobs:
       with:
         ruby-version: '2.6'
     - name: Downoad man page
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: q-man-page
     - name: Download Linux Executable
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: linux-q
     - name: Build DEB Package
@@ -191,7 +191,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Download DEB
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: q-text-as-data-${{ needs.version_info.outputs.q_version }}-1.x86_64.deb
     - name: Install Python for Testing
@@ -218,11 +218,11 @@ jobs:
       with:
         ruby-version: '2.6'
     - name: Download man page
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: q-man-page
     - name: Download Linux Executable
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: linux-q
     - name: Build RPM Package
@@ -252,7 +252,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Download RPM
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: q-text-as-data-${{ needs.version_info.outputs.q_version }}.x86_64.rpm
     - name: Retest using RPM
@@ -316,7 +316,7 @@ jobs:
 
         pip3 install -r test-requirements.txt
     - name: Download MacOS Executable
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: macos-q
     - name: Run Tests on MacOS Executable
@@ -404,7 +404,7 @@ jobs:
         python-version: '3.8'
         architecture: 'x64'
     - name: Download Windows Executable
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: win-q.exe
     - name: Not-Really-Test Windows
@@ -465,7 +465,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Download Windows Package
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         name: q-text-as-data-${{ needs.version_info.outputs.q_version }}.msi
     - name: Test Install of MSI
@@ -493,7 +493,7 @@ jobs:
     if: needs.version_info.outputs.is_release == 'false'
     steps:
     - name: Download All Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         path: artifacts/
     - name: Timestamp pre-release
@@ -517,7 +517,7 @@ jobs:
     if: needs.version_info.outputs.is_release == 'true'
     steps:
     - name: Download All Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.7
       with:
         path: artifacts/
     - uses: "marvinpinto/action-automatic-releases@v1.2.1"
